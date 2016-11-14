@@ -8,4 +8,12 @@ class_name: FunctionalTester
 modules:
     enabled:
         # add framework module here
+        - Symfony:
+            app_path: 'app'
+            var_path: 'var'
+            environment: 'test'
+        - REST:
+            depends: Symfony
+        - Asserts
+        - Redis
         - \Helper\Functional
