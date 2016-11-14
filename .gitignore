@@ -15,3 +15,5 @@
 /vendor/
 /web/bundles/
 /servers.yml
+
+tests/_output/*
