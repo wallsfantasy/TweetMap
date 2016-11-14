@@ -1,0 +1,9 @@
+walls-rabbit:
+    host: walls-rabbit.ar-bro.net
+    port: 10022
+    user: tee
+    identity_file:
+        public_key: ~/.ssh/id_rsa.arbro.pub
+        private_key: ~/.ssh/id_rsa.arbro
+    stage: production
+    deploy_path: /var/www/tweetmap-prod
