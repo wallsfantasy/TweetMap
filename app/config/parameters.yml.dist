@@ -23,3 +23,6 @@ parameters:
     twitter_consumer_secret: ~
     twitter_access_token: ~
     twitter_access_token_secret: ~
+
+    # Tweet TTL
+    city_tweet_ttl: 3600
