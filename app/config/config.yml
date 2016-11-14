@@ -73,3 +73,11 @@ endroid_twitter:
     consumer_secret: "%twitter_consumer_secret%"
     access_token: "%twitter_access_token%"
     access_token_secret: "%twitter_access_token_secret%"
+
+# redis
+snc_redis:
+    clients:
+        default:
+            type: predis
+            alias: default
+            dsn: redis://localhost
