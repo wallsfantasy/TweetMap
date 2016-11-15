@@ -19,3 +19,8 @@ services:
         class: AppBundle\Service\TwitterProvider\EndroidTwitter
         arguments:
             - "@endroid.twitter"
+
+    app.provider.geocoder:
+        class: AppBundle\Service\GeocoderProvider\TwitterGeocoderProvider
+        arguments:
+            - "@endroid.twitter"
