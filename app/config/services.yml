@@ -14,3 +14,8 @@ services:
             - "@snc_redis.default"
             - "citytweet"
             - "%city_tweet_ttl%"
+
+    app.provider.twitter:
+        class: AppBundle\Service\TwitterProvider\EndroidTwitter
+        arguments:
+            - "@endroid.twitter"

@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\functional\Geocode\Repository;
+namespace tests\functional\Repository\Redis;
 
 use AppBundle\Entity\CityTweet;
 use AppBundle\Model\Tweet;
