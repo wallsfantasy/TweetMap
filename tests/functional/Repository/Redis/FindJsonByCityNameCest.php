@@ -26,18 +26,28 @@ class FindJsonByCityNameCest
         $I->wantTo('Find by city name return json');
 
         // Mock data in DB
-        $cityName = 'Bangkok';
-        $id = $this->repository->id($cityName);
-        $tweet = new Tweet('http://www.twitter.com/me.jpg', 'Adam', 'Hello!', '12/12/12', 1, 1);
-        $actual = ['id' => $id, 'city' => $cityName, 'tweets' => [$tweet->toArray()]];
+        $cityName  = 'Bangkok';
+        $id        = $this->repository->id($cityName);
+        $latitude  = 1;
+        $longitude = 2;
+
+        $tweet  = new Tweet('http://www.twitter.com/me.jpg', 'Adam', 'Hello!', '12/12/12', 1, 2);
+        $actual = [
+            'id' => $id,
+            'city' => $cityName,
+            'lat' => $latitude,
+            'lng' => $longitude,
+            'tweets' => [$tweet->toArray()]
+        ];
+
         $I->haveInRedis('string', $id, json_encode($actual));
 
         // Execute
         $actual = $this->repository->findJsonByCityName($cityName);
 
         // Expectation
-        $cityTweet = new CityTweet($id, $cityName, [$tweet]);
-        $expected = json_encode($cityTweet);
+        $cityTweet = new CityTweet($id, $cityName, $latitude, $longitude, [$tweet]);
+        $expected  = json_encode($cityTweet);
 
         // Assert
         $I->assertEquals($expected, $actual);
@@ -48,7 +58,7 @@ class FindJsonByCityNameCest
         $I->wantTo('Find by city name return null when not found');
 
         $cityName = 'non-exist';
-        $actual = $this->repository->findJsonByCityName($cityName);
+        $actual   = $this->repository->findJsonByCityName($cityName);
 
         $expected = null;
 

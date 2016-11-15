@@ -26,10 +26,13 @@ class SaveCityTweetCest
         $I->wantTo('Save CityTweet as json success');
 
         // Mock object
-        $cityName = 'Bangkok';
-        $id = $this->repository->id($cityName);
-        $tweet = new Tweet('http://www.twitter.com/me.jpg', 'Adam', 'Hello!', '12/12/12', 1, 1);
-        $cityTweet = new CityTweet($id, $cityName, [$tweet]);
+        $cityName  = 'Bangkok';
+        $id        = $this->repository->id($cityName);
+        $latitude  = 1;
+        $longitude = 2;
+
+        $tweet     = new Tweet('http://www.twitter.com/me.jpg', 'Adam', 'Hello!', '12/12/12', 1, 2);
+        $cityTweet = new CityTweet($id, $cityName, $latitude, $longitude, [$tweet]);
 
         // Execute
         $this->repository->save($cityTweet);

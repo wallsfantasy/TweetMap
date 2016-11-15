@@ -12,14 +12,22 @@ class CityTweet implements \JsonSerializable
     /** @var string */
     private $cityName;
 
+    /** @var int */
+    private $latitude;
+
+    /** @var int */
+    private $longitude;
+
     /** @var Tweet[] */
     private $tweets;
 
-    public function __construct($id, $cityName, array $tweets = [])
+    public function __construct($id, $cityName, $latitude, $longitude, array $tweets = [])
     {
-        $this->id   = $id;
-        $this->cityName = $cityName;
-        $this->tweets = $tweets;
+        $this->id        = $id;
+        $this->cityName  = $cityName;
+        $this->latitude  = $latitude;
+        $this->longitude = $longitude;
+        $this->tweets    = $tweets;
     }
 
     /**
@@ -39,6 +47,22 @@ class CityTweet implements \JsonSerializable
     }
 
     /**
+     * @return int
+     */
+    public function getLatitude()
+    {
+        return $this->latitude;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLongitude()
+    {
+        return $this->longitude;
+    }
+
+    /**
      * @return \AppBundle\Model\Tweet[]
      */
     public function getTweets()
@@ -54,6 +78,8 @@ class CityTweet implements \JsonSerializable
         $json = [
             'id' => $this->id,
             'city' => $this->cityName,
+            'lat' => $this->latitude,
+            'lng' => $this->longitude,
             'tweets' => []
         ];
 
