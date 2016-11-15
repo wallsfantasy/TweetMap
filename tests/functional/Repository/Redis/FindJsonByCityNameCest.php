@@ -28,7 +28,7 @@ class FindJsonByCityNameCest
         // Mock data in DB
         $cityName = 'Bangkok';
         $id = $this->repository->id($cityName);
-        $tweet = new Tweet('http://www.twitter.com', 'Hello!', '12/12/12');
+        $tweet = new Tweet('http://www.twitter.com/me.jpg', 'Adam', 'Hello!', '12/12/12', 1, 1);
         $actual = ['id' => $id, 'city' => $cityName, 'tweets' => [$tweet->toArray()]];
         $I->haveInRedis('string', $id, json_encode($actual));
 

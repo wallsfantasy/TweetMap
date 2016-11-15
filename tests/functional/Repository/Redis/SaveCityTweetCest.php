@@ -28,7 +28,7 @@ class SaveCityTweetCest
         // Mock object
         $cityName = 'Bangkok';
         $id = $this->repository->id($cityName);
-        $tweet = new Tweet('http://www.twitter.com', 'Hello!', '12/12/12');
+        $tweet = new Tweet('http://www.twitter.com/me.jpg', 'Adam', 'Hello!', '12/12/12', 1, 1);
         $cityTweet = new CityTweet($id, $cityName, [$tweet]);
 
         // Execute

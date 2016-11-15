@@ -5,7 +5,10 @@ namespace AppBundle\Model;
 class Tweet
 {
     /** @var string */
-    private $url;
+    private $image;
+
+    /** @var string */
+    private $screenName;
 
     /** @var string */
     private $text;
@@ -13,40 +16,28 @@ class Tweet
     /** @var string */
     private $createdAt;
 
+    /** @var string */
+    private $latitude;
+
+    /** @var string */
+    private $longitude;
+
     /**
-     * @param string $url
+     * @param string $image
+     * @param string $screenName
      * @param string $text
      * @param string $createdAt
+     * @param string $latitude
+     * @param string $longitude
      */
-    public function __construct($url, $text, $createdAt)
+    public function __construct($image, $screenName, $text, $createdAt, $latitude, $longitude)
     {
-        $this->url       = $url;
-        $this->text      = $text;
-        $this->createdAt = $createdAt;
-    }
-
-    /**
-     * @return string
-     */
-    public function getUrl()
-    {
-        return $this->url;
-    }
-
-    /**
-     * @return string
-     */
-    public function getText()
-    {
-        return $this->text;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
+        $this->image      = $image;
+        $this->screenName = $screenName;
+        $this->text       = $text;
+        $this->createdAt  = $createdAt;
+        $this->latitude   = $latitude;
+        $this->longitude  = $longitude;
     }
 
     /**
@@ -55,9 +46,12 @@ class Tweet
     public function toArray()
     {
         return [
-            'url' => $this->url,
+            'image' => $this->image,
+            'screen_name' => $this->screenName,
             'text' => $this->text,
-            'created_at' => $this->createdAt
+            'created_at' => $this->createdAt,
+            'latitude' => $this->latitude,
+            'longitude' => $this->longitude
         ];
     }
 }
