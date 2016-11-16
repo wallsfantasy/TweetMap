@@ -32,3 +32,10 @@ services:
         class: AppBundle\Service\GeocoderProvider\TwitterGeocoderProvider
         arguments:
             - "@endroid.twitter"
+
+    app.service.search_city_tweet:
+        class: AppBundle\Service\SearchCityTweetService
+        arguments:
+            - "@app.provider.geocoder"
+            - "@app.repository.city_tweet"
+            - "@app.factory.city_tweet"
