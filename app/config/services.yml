@@ -15,6 +15,14 @@ services:
             - "citytweet"
             - "%city_tweet_ttl%"
 
+    app.factory.city_tweet:
+        class: AppBundle\Factory\CityTweetFactory
+        arguments:
+            - "%twitter_factory_find_radius%"
+            - "%twitter_factory_find_query_size%"
+            - "@app.repository.city_tweet"
+            - "@app.provider.twitter"
+
     app.provider.twitter:
         class: AppBundle\Service\TwitterProvider\EndroidTwitter
         arguments:

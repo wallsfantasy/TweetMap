@@ -26,3 +26,7 @@ parameters:
 
     # Tweet TTL
     city_tweet_ttl: 3600
+
+    # Twitter Factory
+    twitter_factory_find_query_size: 100
+    twitter_factory_find_radius: 50
